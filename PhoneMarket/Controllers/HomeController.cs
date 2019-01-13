@@ -8,8 +8,15 @@ namespace PhoneMarket.Controllers
 {
     public class HomeController : Controller
     {
+        PhoneContext PhoneContext = new PhoneContext();
+
+
         public ActionResult Index()
         {
+            IEnumerable<Phone> phones = PhoneContext.Phones;
+
+            ViewBag.Phones = phones;
+
             return View();
         }
     }
