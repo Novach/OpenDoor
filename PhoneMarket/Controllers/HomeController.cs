@@ -13,8 +13,10 @@ namespace PhoneMarket.Controllers
 
         public ActionResult Index()
         {
+            //извлекаем данные из таблицы Phones
             IEnumerable<Phone> phones = PhoneContext.Phones;
-
+            
+            //записываем phones в динамическое свойство ViewBag
             ViewBag.Phones = phones;
 
             return View();
