@@ -23,11 +23,19 @@ namespace PhoneMarket.Controllers
             return View();
         }
 
-        [HttpGet]
+        [HttpGet]//переход по ссылке
         public ActionResult Buy(int id)
         {
             ViewBag.Id = id;
             return View();
+        }
+        [HttpPost]//при пост запросе
+        public string Buy(Purchase purchase)
+        {
+            purchase.DataTime = DateTime.Now;
+            PhoneContext.Purchases.Add(purchase);
+            PhoneContext.SaveChanges():
+            return $"Уважаемый,{purchase.FIO}, c вами скоро свяжутся";
         }
     }
 }
