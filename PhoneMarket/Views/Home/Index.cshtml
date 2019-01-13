@@ -1,42 +1,32 @@
 @{
-    Layout = null;// для представления не используется мастер страницы
+    Layout = "/Views/shared/_layout.cshtml"; ;// для представления не используется мастер страницы
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>
-        Index
-    </title>
-</head>
 
-<body>
-    <h3>Товары интернет магазина PhoneMarket</h3>
-    <br />
+<h3>Товары интернет магазина PhoneMarket</h3>
+<br />
 
-    <table>
-        <thead>
-            <tr>
-                <td>Название</td>
-                <td>Производитель</td>
-                <td>Цена (руб)</td>
-                <td>&nbsp;</td>
-            </tr>
-        </thead>
-        <tbody>
-            @{
-                foreach (var phone in ViewBag.Phones)//@ - это гибрид MVP для того чтобы писать в html страницах код в нашем случае это C#
-                {
-                    <tr>
-                        <td>@phone.name</td>
-                        <td>@phone.Producer</td>
-                        <td>@phone.Price</td>
-                        <td><a href="/Home/Buy/@phone.Id">Купить</a></td>
-                    </tr>
-                }
-
+<table>
+    <thead>
+        <tr>
+            <td>Название</td>
+            <td>Производитель</td>
+            <td>Цена (руб)</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var phone in ViewBag.Phones)//@ - это гибрид MVP для того чтобы писать в html страницах код в нашем случае это C#
+            {
+                <tr>
+                    <td>@phone.name</td>
+                    <td>@phone.Producer</td>
+                    <td>@phone.Price</td>
+                    <td><a href="/Home/Buy/@phone.Id">Купить</a></td>
+                </tr>
             }
-            </tbody>
-        </table>
-</body>
-</html>
+
+        }
+    </tbody>
+</table>
